@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Check if PYCODE is set
+if [ -z "$PYCODE" ]; then
+    print(f"Best School: {88+10}")
+    exit 1
+fi
+
+# Run the Python code
+python3 -c "$PYCODE"
