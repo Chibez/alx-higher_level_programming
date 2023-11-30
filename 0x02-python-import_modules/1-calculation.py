@@ -1,14 +1,14 @@
 #!/usr/bin/python3
-a = 10
-b = 5
-calculator_1 = __import__('calculator_1')
 
-add_result = calculator_1.add(a, b)
-sub_result = calculator_1.sub(a, b)
-mul_result = calculator_1.mul(a, b)
-div_result = calculator_1.div(a, b)
+if __name__ == "__main__":
+    from calculator_1 import add, sub, mul, div
 
-print("10 + 5 =", add_result)
-print("10 - 5 =", sub_result)
-print("10 * 5 =", mul_result)
-print("10 / 5 =", div_result)
+    # Define variables
+    a = 10
+    b = 5
+
+    # Perform calculations and display results
+    print("{:d} + {:d} = {:d}".format(a, b, add(a, b)))
+    print("{:d} - {:d} = {:d}".format(a, b, sub(a, b)))
+    print("{:d} * {:d} = {:d}".format(a, b, mul(a, b)))
+    print("{:d} / {:d} = {:d}".format(a, b, div(a, b)))
