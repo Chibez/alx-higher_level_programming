@@ -1,13 +1,18 @@
 #!/usr/bin/python3
-""" Python script that Fetches https://alx-intranet.hbtn.io/status."""
+"""Used to Sends a POST request to a given URL with a given email.
+Usage: ./2-post_email.py <URL> <email>
+  - Displays the body of the response.
+"""
+import sys
+import urllib.parse
 import urllib.request
 
 
 if __name__ == "__main__":
-    request = urllib.request.Request("https://alx-intranet.hbtn.io/status")
+    url = sys.argv[1]
+    value = {"email": sys.argv[2]}
+    data = urllib.parse.urlencode(value).encode("ascii")
+
+    request = urllib.request.Request(url, data)
     with urllib.request.urlopen(request) as response:
-        body = response.read()
-        print("Body response:")
-        print("\t- type: {}".format(type(body)))
-        print("\t- content: {}".format(body))
-        print("\t- utf8 content: {}".format(body.decode("utf-8")))
+        print(response.read().decode("utf-8"))
